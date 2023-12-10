@@ -1,0 +1,121 @@
+{
+    "took": 51,
+    "timed_out": false,
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 3,
+            "relation": "eq"
+        },
+        "max_score": 1.0,
+        "hits": [
+            {
+                "_index": "restaurantes",
+                "_type": "_doc",
+                "_id": "1",
+                "_score": 1.0,
+                "_source": {
+                    "nombre": "MdDonals",
+                    "categorias": [
+                        {
+                            "nombre": "Comida Rápida",
+                            "principal": true
+                        },
+                        {
+                            "nombre": "Desatunos",
+                            "principal": false
+                        },
+                        {
+                            "nombre": "Hamburguesas",
+                            "principal": false
+                        }
+                    ],
+                    "calificacion": 4.22,
+                    "direccion": "Calle Primera, Barrio Centro",
+                    "ultimaModficacion": {
+                        "fecha": "2020-02-19",
+                        "usuario": "rick@mail.com"
+                    },
+                    "plato": [
+                        {
+                            "descripcion": "Pollo, salsa picante, frijoles, platano y aguacate",
+                            "estado": "activo",
+                            "pedidosUltimaHora": 42,
+                            "nombre": "Bowl Picante"
+                        }
+                    ]
+                }
+            },
+            {
+                "_index": "restaurantes",
+                "_type": "_doc",
+                "_id": "2",
+                "_score": 1.0,
+                "_source": {
+                    "nombre": "Burguer King",
+                    "categorias": [
+                        {
+                            "nombre": "Comida Rápida",
+                            "principal": false
+                        },
+                        {
+                            "nombre": "Hamburguesas",
+                            "principal": true
+                        }
+                    ],
+                    "calificacion": 3.75,
+                    "direccion": "Calle Segunda, Barrio Occidental",
+                    "ultimaModficacion": {
+                        "fecha": "2020-03-01",
+                        "usuario": "jerry@mail.com"
+                    },
+                    "plato": [
+                        {
+                            "descripcion": "Nachos con carne, guacamole, pico de gallos, salsa picante y queso",
+                            "pedidosUltimHora": 11,
+                            "nombre": "Nachos XL"
+                        }
+                    ]
+                }
+            },
+            {
+                "_index": "restaurantes",
+                "_type": "_doc",
+                "_id": "3",
+                "_score": 1.0,
+                "_source": {
+                    "nombre": "Subway",
+                    "categorias": [
+                        {
+                            "nombre": "Comida saludable",
+                            "principal": false
+                        },
+                        {
+                            "nombre": "Sándwiches",
+                            "principal": true
+                        }
+                    ],
+                    "calificacion": 3.75,
+                    "direccion": "Calle Tercera, Barrio Norte",
+                    "ultimaModficacion": {
+                        "fecha": "2020-01-22",
+                        "usuario": "Rick@mail.com"
+                    },
+                    "plato": [
+                        {
+                            "descripcion": "Aceitunas, cebolla, queso, tomate, aguacate (saludable)",
+                            "estado": "activo",
+                            "pedidosUltimaHora": 0,
+                            "nombre": "Ensaladisima"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

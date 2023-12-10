@@ -1,0 +1,48 @@
+# Especifica la versión del archivo de Docker Compose
+version: '2.2'
+
+# Define los servicios que se van a ejecutar
+services:
+  # Configuración del servicio de Elasticsearch
+  es01:
+    # Utiliza la imagen de Elasticsearch 7.6.0 de su repositorio oficial
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
+
+    # Establece el nombre del contenedor como 'es01'
+    container_name: es01
+
+    # Define las variables de entorno para el contenedor
+    environment:
+      - node.name=es01                    # Nombre del nodo de Elasticsearch
+      - cluster.name=es-docker-cluster    # Nombre del cluster de Elasticsearch
+      - bootstrap.memory_lock=true        # Habilita el bloqueo de memoria para prevenir swapping
+      - discovery.type=single-node        # Establece el tipo de descubrimiento a un solo nodo, útil para pruebas o desarrollo
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  # Configura las opciones de Java para la asignación de memoria
+
+    # Configura los límites de memoria para el contenedor
+    ulimits:
+      memlock:
+        soft: -1   # Límite suave para el bloqueo de memoria
+        hard: -1   # Límite duro para el bloqueo de memoria
+
+    # Mapea los volúmenes para la persistencia de datos
+    volumes:
+      - data01:/usr/share/elasticsearch/data  # Asigna el volumen 'data01' al directorio de datos de Elasticsearch
+
+    # Configura los puertos que se expondrán
+    ports:
+      - 9200:9200  # Expone el puerto 9200, el puerto por defecto de Elasticsearch
+
+    # Define las redes a las que se unirá el contenedor
+    networks:
+      - elastic  # Se conecta a la red 'elastic'
+
+# Define los volúmenes utilizados por los servicios
+volumes:
+  data01:
+    driver: local  # Usa el controlador local para el volumen 'data01'
+
+# Define las redes utilizadas por los contenedores
+networks:
+  elastic:
+    driver: bridge  # Usa el controlador de puente para la red 'elastic'
